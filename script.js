@@ -3,10 +3,10 @@ const form = document.getElementById('form');
 const username=document.getElementById('username');
 const email=document.getElementById('email');
 const password=document.getElementById('password');
-const confirmpassword=document.getElementById('confirm-password');
+const confirmPassword=document.getElementById('confirmpassword');
 
 //crete arr
-const inputarr=[username,email,password,confirmpassword];
+const inputarr=[username,email,password,confirmPassword] ;
 
 
 //func for show error
@@ -51,15 +51,15 @@ const checkLength =function(input,min,max){
 }
 };
 // check password func
-const checkPassword = function (input1,input2){
-    if (input1.value !== '' && input2.value !== '')
-      if (input1.value !== input2.value) {
-        showError(input2,'Password not matched');
-      } else {
-        showSuccess(input1);
-        showSuccess(input2);
-      }
-  };
+const checkPassword = function(input1 , input2){
+  if(input1.value !=='' && input2.value !=='')
+    if(input1.value !== input2.value){
+      showErorr(input2,'password not match');
+    
+  }else{
+    showSuccess(input1);
+    showSuccess(input2);
+  }};
 
 
   //func for mess
@@ -71,7 +71,7 @@ const checkPassword = function (input1,input2){
 const checkRequired = function(inputarr){
     inputarr.forEach((input) =>{
    if (input.value ===''){
-       showErorr(input,` required`);
+       showErorr(input,`${message(input)} is required`);
    }else{
        showSuccess(input);
    }
@@ -85,7 +85,7 @@ e.preventDefault();
  checkRequired(inputarr);
  checkEmail(email);
  checkLength(password,6,12);
- checkPassword(password,confirmpassword);
+checkPassword(password,confirmPassword);
 });
 
 
